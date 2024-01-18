@@ -274,7 +274,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &2092670970185402358
 MonoBehaviour:
@@ -365,7 +365,7 @@ Transform:
   - {fileID: 3474696552125344741}
   - {fileID: 4648659297264294913}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6494730478317827757
 BoxCollider2D:
