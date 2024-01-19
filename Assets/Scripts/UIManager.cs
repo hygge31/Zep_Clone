@@ -8,16 +8,32 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI timeText;
+
+    //bottom
+    public TMP_InputField inputField;
+    public GameObject changeNameUi;
+    public GameObject errorMessage;
+    public GameObject changeChrUi;
+
+    //right
     public GameObject guestsUi;
+    public TextMeshProUGUI guestsText;
     int onGuestUi = -1;
+    bool isGuestUi;
+
+
+
+
+
 
     private void Start()
     {
         StartCoroutine(ShowTimeCo());
+        GameManager.I.OnChangeName += GuestsText;
     }
-    
-    
 
+
+    //---------------------------Time
     IEnumerator ShowTimeCo()
     {
         string time;
@@ -28,28 +44,114 @@ public class UIManager : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
     }
+    //---------------------------Time
 
-
+    //---------------------------RightUi
+    public void GuestsText()
+    {
+        guestsText.text = GameManager.I.name +" ( 나 )\n";
+       foreach(GameObject name in GameManager.I.guest)
+        {
+            guestsText.text += name.name + "\n";
+        }
+    }
 
     public void ShowRightUi()
     {
-      Vector3 vec = guestsUi.GetComponent<RectTransform>().position;
-        vec.x += 5f * onGuestUi;
-
-        StartCoroutine(MoveUiCo(guestsUi, vec));
-        onGuestUi *= -1;
+        if (!isGuestUi)
+        {
+            GuestsText();
+            isGuestUi = true;
+            guestsUi.SetActive(true);
+        }
+        else
+        {
+            isGuestUi = false;
+            guestsUi.SetActive(false);
+        }
+     
     }
+
+
+
+    public void Choice_1()
+    {
+        GameManager.I.charNum = 0;
+        GameManager.I.CallChangeChr();
+        changeChrUi.SetActive(false);
+    }
+
+    public void Choice_2()
+    {
+        GameManager.I.charNum = 1;
+        GameManager.I.CallChangeChr();
+        changeChrUi.SetActive(false);
+    }
+
+
+    //---------------------------RightUi
+
+    //---------------------------BottomUi
+    public void ShowChangeNameUi()
+    {
+        if (changeNameUi.activeSelf)
+        {
+            GameManager.I.playerState = PlayerState.Play;
+            errorMessage.SetActive(false);
+            changeNameUi.SetActive(false);
+        }
+        else
+        {
+            GameManager.I.playerState = PlayerState.Stop;
+            changeNameUi.SetActive(true);
+        }
+        
+    }
+    public void SetName()
+    {
+        if(inputField.text.Length >=2 && inputField.text.Length <= 10)
+        {
+            GameManager.I.name = inputField.text;
+            GameManager.I.CallChangeName();
+            GameManager.I.playerState = PlayerState.Play;
+            errorMessage.SetActive(false);
+            changeNameUi.SetActive(false);
+        }
+        else
+        {
+            errorMessage.SetActive(true);
+        }
+       
+    }
+
+
+    public void ShowChangeChrUi()
+    {
+        if (changeChrUi.activeSelf)
+        {
+            changeChrUi.SetActive(false);
+        }
+        else
+        {
+            changeChrUi.SetActive(true);
+        }
+    }
+
+    //---------------------------BottomUi
 
 
     IEnumerator MoveUiCo(GameObject Ui,Vector3 vec)
     {
         float percent = 0;
+        Vector3 pot = Ui.transform.position;
         while (percent <1)
         {
-            percent += Time.deltaTime;
-            Ui.transform.position = Vector3.Lerp(Ui.transform.position, vec, percent);
-            yield return new WaitForSeconds(.5f);
+            percent += Time.deltaTime*5;
+            Ui.transform.position = Vector3.Lerp(pot, vec, percent);
+            yield return new WaitForSeconds(.01f);
         }
+        isGuestUi = false;
     }
 }
-//752 : 14 , 445 : 9
+
+

@@ -21,25 +21,33 @@ public class PlayerController : TopDownCharactorController
 
     public void OnMove(InputValue value)
     {
+
+        if(GameManager.I.playerState == PlayerState.Play)
+        {
         Vector2 moveInput = value.Get<Vector2>().normalized;
+            if (moveInput.magnitude != 0)
+            {
+                animator.SetBool("isWalk", true);
+            }
+            else
+            {
+                animator.SetBool("isWalk", false);
+            }
 
-        if (moveInput.magnitude != 0)
-        {
-            animator.SetBool("isWalk", true);
-        }
-        else
-        {
-            animator.SetBool("isWalk", false);
+            CallMoveEvent(moveInput);
         }
 
-        CallMoveEvent(moveInput);
     }
     public void OnMouse(InputValue value)
     {
+        if (GameManager.I.playerState == PlayerState.Play)
+        {
         Vector2 newAim = value.Get<Vector2>();
-        Vector2 worldPot = Camera.main.ScreenToWorldPoint(newAim);
-        newAim = (worldPot - (Vector2)transform.position).normalized;
-        CallLookEvent(newAim);
+            Vector2 worldPot = Camera.main.ScreenToWorldPoint(newAim);
+            newAim = (worldPot - (Vector2)transform.position).normalized;
+            CallLookEvent(newAim);
+        }
+           
         
     }
 

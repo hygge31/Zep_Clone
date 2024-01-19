@@ -1,17 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
+public enum PlayerState
+{
+    Stop,
+    Play
+}
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager I;
+
+    public event Action OnChangeName;
+    public event Action OnChangeChr;
+    public event Action<GameObject> OnChangeCamera;
+
     public string name;
     public int charNum;
-    public GameObject[] players;
+    public PlayerState playerState = PlayerState.Play;
+    public GameObject playerObj;
+    public List<GameObject> guest = new List<GameObject>();
+
 
     private void Awake()
     {
         I = this;
+    }
+
+    private void Start()
+    {
         SetInit();
     }
 
@@ -21,12 +40,29 @@ public class GameManager : MonoBehaviour
         name = PlayerPrefs.GetString("name");
         charNum = PlayerPrefs.GetInt("charNum");
 
-      GameObject player =  Instantiate(players[charNum], new Vector3(0.5f, 15, 0), Quaternion.identity);
-        player.name = "Player";
+      GameObject player =  Instantiate(playerObj, new Vector3(0.5f, 15, 0), Quaternion.identity);
+        player.name = "PlayerObj";
     }
 
+    public void CallChangeName()
+    {
+        if(OnChangeName != null)
+        {
+            OnChangeName();
+        }
+    }
+    public void CallChangeChr()
+    {
+        if (OnChangeChr != null)
+        {
+            OnChangeChr();
+        }
+    }
+    public void CallChangeCamera(GameObject player)
+    {
+        OnChangeCamera?.Invoke(player);
+    }
+   
+    // 
 
-
-
-    
 }
