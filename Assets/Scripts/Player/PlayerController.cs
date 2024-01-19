@@ -17,22 +17,7 @@ public class PlayerController : TopDownCharactorController
         animator = mainSprite.GetComponent<Animator>();
     }
 
-    private void FixedUpdate()
-    {
-        
-    }
-
-    private void OnDrawGizmos()
-    {
-        Color color = Color.blue;
-        color.a = 0.5f;
-        Gizmos.color = color;
-        Gizmos.DrawSphere(transform.position, 2);
-    }
-
-
-
-
+   
     public void OnMove(InputValue value)
     {
 
