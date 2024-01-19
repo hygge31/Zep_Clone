@@ -11,7 +11,7 @@ public class PlayerSelectChar : MonoBehaviour
     private void Start()
     {
         GameManager.I.OnChangeChr += ChangeChr;
-        Init();
+        ChangeChr();
     }
 
 
