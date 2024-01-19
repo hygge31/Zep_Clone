@@ -10,23 +10,31 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI timeText;
 
     //bottom
+    [Header("Bottom UI")]
     public TMP_InputField inputField;
     public GameObject changeNameUi;
     public GameObject errorMessage;
     public GameObject changeChrUi;
 
     //right
+    [Header("Right UI")]
     public GameObject guestsUi;
     public TextMeshProUGUI guestsText;
     int onGuestUi = -1;
     bool isGuestUi;
 
     //talkBox
+    [Header("Talk UI")]
     public bool onTalkBtn;
+    public bool isTalking;
+    public int npcSpriteIdx = -1;
     public GameObject talkBtn;
     public GameObject talkBox;
+    public TextMeshProUGUI talkBox_Name;
     public TextMeshProUGUI talkBoxText;
-    GameObject npc;
+    public GameObject talkNextBtn;
+    public GameObject talkEndBtn;
+    public GameObject npc;
 
 
 
@@ -41,10 +49,14 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if(talkBtn.activeSelf && Input.GetKeyDown(KeyCode.X))
+        if(talkBtn.activeSelf && !isTalking && Input.GetKeyDown(KeyCode.X))
         {
-            //talkBox active, 
+            talkBtn.SetActive(false);
+            isTalking = true;
+            talkBox.SetActive(true);
+            NpcSparitsNext();
         }
+
     }
 
 
@@ -159,20 +171,44 @@ public class UIManager : MonoBehaviour
     {
         if (talkBtn.activeSelf)
         {
+            npc = null;
+            GameManager.I.onTalkBtn = false;
             talkBtn.SetActive(false);
         }
         else
         {
             npc = _npc;
+            GameManager.I.onTalkBtn = true;
             talkBtn.SetActive(true);
         }
     }
 
-    void NpcTalk(GameObject npc)
+    public void NpcSparitsNext()
     {
-        string[] scripts = npc.GetComponent<NPC>().scripts;
+        npcSpriteIdx++;
+        NPC npc = this.npc.GetComponent<NPC>();
+        talkBox_Name.text = npc.name;
+        talkBoxText.text = npc.scripts[npcSpriteIdx];
+        if (npcSpriteIdx + 1 == npc.scripts.Length)
+        {
+            talkNextBtn.SetActive(false);
+            talkEndBtn.SetActive(true);
+        }
+        else
+        {
+            talkNextBtn.SetActive(true);
+        }
 
     }
+
+    public void CloseTalkBox()
+    {
+        talkEndBtn.SetActive(false);
+        talkBox.SetActive(false);
+        isTalking = false;
+        npcSpriteIdx = -1;
+    }
+
     //---------------------------TalkBox
 
 

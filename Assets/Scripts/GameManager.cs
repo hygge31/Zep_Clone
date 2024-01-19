@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public event Action OnChangeChr;
     public event Action<GameObject> OnChangeCamera;
     public event Action<GameObject> OnTalkInteraction;
+    public bool onTalkBtn;
 
     public string name;
     public int charNum;

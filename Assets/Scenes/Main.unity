@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.47899607, g: 0.8679245, b: 0.7764623, a: 1}
+  m_Color: {r: 0.5606978, g: 0.6792453, b: 0.65170395, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5448113, g: 0.6280622, b: 0.7264151, a: 1}
+  m_Color: {r: 0.48593807, g: 0.5052781, b: 0.5283019, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1304,7 +1304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.54509807, g: 0.627451, b: 0.7254902, a: 1}
+  m_Color: {r: 0.48627454, g: 0.5058824, b: 0.5294118, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1677,7 +1677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.47899607, g: 0.8679245, b: 0.7764623, a: 1}
+  m_Color: {r: 0.56078434, g: 0.6784314, b: 0.6509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1775,7 +1775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &841118258
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20630,7 +20630,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1463340517
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21325,9 +21325,10 @@ MonoBehaviour:
   guestsUi: {fileID: 560068997}
   guestsText: {fileID: 609527381}
   onTalkBtn: 0
-  talkBtn: {fileID: 0}
-  talkBox: {fileID: 0}
-  talkBoxText: {fileID: 0}
+  talkBtn: {fileID: 841118257}
+  talkBox: {fileID: 1748620116}
+  talkBoxText: {fileID: 780758729}
+  npc: {fileID: 0}
 --- !u!1 &1651035731
 GameObject:
   m_ObjectHideFlags: 0
@@ -21340,9 +21341,10 @@ GameObject:
   - component: {fileID: 1651035733}
   - component: {fileID: 1651035732}
   - component: {fileID: 1651035735}
+  - component: {fileID: 1651035736}
   m_Layer: 6
   m_Name: "\uC5FC\uC608\uCC2C \uD29C\uD130"
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21450,6 +21452,51 @@ MonoBehaviour:
   name: 
   scripts:
   - 
+--- !u!61 &1651035736
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651035731}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04572773, y: 0.26490974}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 3.125, y: 1.71875}
+    newSize: {x: 3.125, y: 1.71875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1434479, y: 0.5298195}
+  m_EdgeRadius: 0
 --- !u!4 &1681566450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4496396431260945973, guid: a3145499408794f5c9be72618b51bd59, type: 3}
@@ -21655,7 +21702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1748620117
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22064,6 +22111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850cbc19e7151405cbbbc6119daf91b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onTalkBtn: 0
   name: 
   charNum: 0
   playerState: 1
@@ -22260,7 +22308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.47899607, g: 0.8679245, b: 0.7764623, a: 1}
+  m_Color: {r: 0.56078434, g: 0.6784314, b: 0.6509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

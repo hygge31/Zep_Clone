@@ -11,13 +11,40 @@ public class PlayerController : TopDownCharactorController
     Animator animator;
     public float playerSpeed;
 
+    public Collider2D colider;
+
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         animator = mainSprite.GetComponent<Animator>();
     }
 
-   
+
+    void LateUpdate()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 2);
+
+        if (!CheckNPC(colliders) && GameManager.I.onTalkBtn)
+        {
+            GameManager.I.CallTalkInteraction(gameObject);
+        }
+           
+    }
+
+
+    public bool CheckNPC(Collider2D[] colliders)
+    {
+        foreach(Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("NPC"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public void OnMove(InputValue value)
     {
 
