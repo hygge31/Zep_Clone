@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public event Action OnChangeName;
     public event Action OnChangeChr;
     public event Action<GameObject> OnChangeCamera;
+    public event Action<GameObject> OnTalkInteraction;
 
     public string name;
     public int charNum;
@@ -62,7 +63,11 @@ public class GameManager : MonoBehaviour
     {
         OnChangeCamera?.Invoke(player);
     }
-   
+    public void CallTalkInteraction(GameObject npc) //x 키를 누를때마다 호출
+    {
+        OnTalkInteraction?.Invoke(npc);
+    }
+
     // 
 
 }

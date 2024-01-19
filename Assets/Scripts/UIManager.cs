@@ -21,6 +21,10 @@ public class UIManager : MonoBehaviour
     int onGuestUi = -1;
     bool isGuestUi;
 
+    //talkBox
+    public bool onTalkBtn;
+    public GameObject talkBtn;
+    public TextMeshProUGUI talkBoxText;
 
 
 
@@ -30,6 +34,7 @@ public class UIManager : MonoBehaviour
     {
         StartCoroutine(ShowTimeCo());
         GameManager.I.OnChangeName += GuestsText;
+        GameManager.I.OnTalkInteraction += OnTalkBtn;
     }
 
 
@@ -138,6 +143,25 @@ public class UIManager : MonoBehaviour
     }
 
     //---------------------------BottomUi
+    //---------------------------TalkBox
+    public void OnTalkBtn(GameObject npc)
+    {
+        if (talkBtn.activeSelf)
+        {
+            
+            talkBtn.SetActive(false);
+        }
+        else
+        {
+            
+            talkBtn.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                Debug.Log("Talk");
+            }
+        }
+    }
+    //---------------------------TalkBox
 
 
     IEnumerator MoveUiCo(GameObject Ui,Vector3 vec)
