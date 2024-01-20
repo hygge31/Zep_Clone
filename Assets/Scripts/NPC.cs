@@ -29,13 +29,4 @@ public class NPC : MonoBehaviour
 
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    Color color = Color.blue;
-    //    color.a = 0.5f;
-    //    Gizmos.color = color;
-    //    Gizmos.DrawSphere(transform.position, 2);
-    //}
-
-    //OverlapSphere , player가 있으면 CallTalkInteraction,
 }

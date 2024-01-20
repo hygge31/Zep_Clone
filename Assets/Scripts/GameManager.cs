@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public int charNum;
     public PlayerState playerState = PlayerState.Play;
     public GameObject playerObj;
+
     public List<GameObject> guest = new List<GameObject>();
 
 

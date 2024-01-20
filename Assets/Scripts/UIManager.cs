@@ -36,6 +36,9 @@ public class UIManager : MonoBehaviour
     public GameObject talkEndBtn;
     public GameObject npc;
 
+    //Minimap
+    [Header("Minimap UI")]
+    public GameObject minimap;
 
 
 
@@ -77,7 +80,7 @@ public class UIManager : MonoBehaviour
     //---------------------------RightUi
     public void GuestsText()
     {
-        guestsText.text = GameManager.I.name +" ( 나 )\n";
+       guestsText.text = GameManager.I.name +" ( 나 )\n";
        foreach(GameObject name in GameManager.I.guest)
         {
             guestsText.text += name.name + "\n";
@@ -210,6 +213,19 @@ public class UIManager : MonoBehaviour
     }
 
     //---------------------------TalkBox
+    //---------------------------Minimap
+    public void ShowMinimap()
+    {
+        if (minimap.activeSelf)
+        {
+            minimap.SetActive(false);
+        }
+        else
+        {
+            minimap.SetActive(true);
+        }
+    }
+    //---------------------------Minimap
 
 
     IEnumerator MoveUiCo(GameObject Ui,Vector3 vec)
