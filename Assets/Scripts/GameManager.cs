@@ -8,6 +8,11 @@ public enum PlayerState
     Stop,
     Play
 }
+public enum WeaponType
+{
+    MELEE,
+    RANGED
+}
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +22,10 @@ public class GameManager : MonoBehaviour
     public event Action OnChangeChr;
     public event Action<GameObject> OnChangeCamera;
     public event Action<GameObject> OnTalkInteraction;
+    //Attack
+    
+
+
     public bool onTalkBtn;
 
     public string name;
@@ -69,6 +78,11 @@ public class GameManager : MonoBehaviour
     {
         OnTalkInteraction?.Invoke(npc);
     }
+    /// <summary>
+    /// Test code
+    /// </summary>
+    /// <param name="dir"></param>
+
 
     // 
 

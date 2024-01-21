@@ -9,6 +9,12 @@ public class PlayerController : TopDownCharactorController
     Rigidbody2D rigidbody;
     public GameObject mainSprite;
     Animator animator;
+
+
+    public WeaponController weaponController;
+
+
+
     public float playerSpeed;
 
     public Collider2D colider;
@@ -18,6 +24,17 @@ public class PlayerController : TopDownCharactorController
         rigidbody = GetComponent<Rigidbody2D>();
         animator = mainSprite.GetComponent<Animator>();
     }
+
+
+
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(0) && weaponController.weapon != null)
+        {
+            OnClickMouse();
+        }
+    }
+
 
 
     void LateUpdate()
@@ -68,13 +85,31 @@ public class PlayerController : TopDownCharactorController
     {
         if (GameManager.I.playerState == PlayerState.Play)
         {
-        Vector2 newAim = value.Get<Vector2>();
+            Vector2 newAim = value.Get<Vector2>();
             Vector2 worldPot = Camera.main.ScreenToWorldPoint(newAim);
             newAim = (worldPot - (Vector2)transform.position).normalized;
             CallLookEvent(newAim);
         }
            
-        
+    }
+
+    public void OnClickMouse()
+    {
+        if(GameManager.I.playerState == PlayerState.Play)
+        {
+            Vector2 pot = weaponController.gameObject.transform.position;
+            Vector2 worldPot = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            pot = (worldPot - (Vector2)transform.position).normalized;
+
+            if(weaponController.weapon.weaponType == WeaponType.MELEE)
+            {
+                Debug.Log("MELEE");
+            }
+            else
+            {
+             weaponController.weapon.Instantiate_Projectile(pot);
+            }
+        }
     }
 
 
