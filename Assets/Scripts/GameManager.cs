@@ -78,12 +78,5 @@ public class GameManager : MonoBehaviour
     {
         OnTalkInteraction?.Invoke(npc);
     }
-    /// <summary>
-    /// Test code
-    /// </summary>
-    /// <param name="dir"></param>
-
-
-    // 
 
 }

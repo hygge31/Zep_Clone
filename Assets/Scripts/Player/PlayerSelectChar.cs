@@ -15,12 +15,6 @@ public class PlayerSelectChar : MonoBehaviour
     }
 
 
-    private void Init() 
-    {
-        chr[0].SetActive(true);
-        GameManager.I.CallChangeCamera(chr[0]);
-    }
-
 
     void ChangeChr()
     {

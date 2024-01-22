@@ -88,6 +88,7 @@ public class PlayerController : TopDownCharactorController
             Vector2 newAim = value.Get<Vector2>();
             Vector2 worldPot = Camera.main.ScreenToWorldPoint(newAim);
             newAim = (worldPot - (Vector2)transform.position).normalized;
+            weaponController.RotateArm(newAim);
             CallLookEvent(newAim);
         }
            
