@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431645709289422710}
   - component: {fileID: 4988028399950574981}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 5963501614176985502}
   - component: {fileID: 471977375747462897}
   - component: {fileID: 122378380206606212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 8390477858445770982}
   - component: {fileID: 6586466104438821264}
   - component: {fileID: 8315951157698142647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 7562253115489084872}
   - component: {fileID: 6697959933582317463}
   - component: {fileID: 6960636472356392477}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 9106386226628908045}
   - component: {fileID: 5299613263478841324}
   - component: {fileID: 8181027612925179318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -645,7 +645,7 @@ GameObject:
   - component: {fileID: 5980423947230768706}
   - component: {fileID: 3841716431011976556}
   - component: {fileID: 538988581321719754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -825,7 +825,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4150431233621737221}
   - component: {fileID: 8207461403907949166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,7 +1063,7 @@ GameObject:
   - component: {fileID: 4019155761082898702}
   - component: {fileID: 152972805932268393}
   - component: {fileID: 3235335493805590515}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1271,7 +1271,7 @@ GameObject:
   - component: {fileID: 4420995806587313978}
   - component: {fileID: 5582519220657531035}
   - component: {fileID: 8642000876946782520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1406,7 +1406,7 @@ GameObject:
   - component: {fileID: 4698772197214664448}
   - component: {fileID: 5756175666293507065}
   - component: {fileID: 6583533502806442722}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1529,6 +1529,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 431645709289422710}
     m_Modifications:
+    - target: {fileID: 160905550864287896, guid: 83a9bdde33ad84337bd36895eb871a0e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2004416473153255962, guid: 83a9bdde33ad84337bd36895eb871a0e, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1588,6 +1592,10 @@ PrefabInstance:
     - target: {fileID: 7186920313568082612, guid: 83a9bdde33ad84337bd36895eb871a0e, type: 3}
       propertyPath: m_Name
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186920313568082612, guid: 83a9bdde33ad84337bd36895eb871a0e, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1618,6 +1626,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4150431233621737221}
     m_Modifications:
+    - target: {fileID: 160905550864287896, guid: 83a9bdde33ad84337bd36895eb871a0e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2004416473153255962, guid: 83a9bdde33ad84337bd36895eb871a0e, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1677,6 +1689,10 @@ PrefabInstance:
     - target: {fileID: 7186920313568082612, guid: 83a9bdde33ad84337bd36895eb871a0e, type: 3}
       propertyPath: m_Name
       value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186920313568082612, guid: 83a9bdde33ad84337bd36895eb871a0e, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

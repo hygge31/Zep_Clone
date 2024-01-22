@@ -20,8 +20,8 @@ public class Weapon : MonoBehaviour
     public void  Instantiate_Projectile(Vector2 _dir)
     {
         Projectile projectile = Instantiate(this.projectile, projectileHolder.transform.position, Quaternion.identity);
-        Destroy(projectile.gameObject, 2f);
         projectile.dir = _dir;
+        Destroy(projectile.gameObject, 2f);
     }
 
 }

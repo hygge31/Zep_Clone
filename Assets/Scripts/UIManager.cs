@@ -175,6 +175,7 @@ public class UIManager : MonoBehaviour
         if (talkBtn.activeSelf)
         {
             npc = null;
+            CloseTalkBox();
             GameManager.I.onTalkBtn = false;
             talkBtn.SetActive(false);
         }

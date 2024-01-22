@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
     {
         if (dir != Vector2.zero)
         {
-            transform.position += (Vector3)dir*Time.deltaTime*5;
+            transform.position += (Vector3)dir*Time.deltaTime*10;
         }
     }
 
@@ -33,7 +33,6 @@ public class Projectile : MonoBehaviour
         Destroy(Instantiate(particle, transform.position, Quaternion.identity),2);
     }
 
-
-
-
 }
+
+
